@@ -1,68 +1,134 @@
 #include <iostream>
-#include <fstream>
 using namespace std;
+#include <string>
+#include <vector>
+class examen;
 
-class Examen
-{
+class date_student : public basic_string<char> {
     string nume_student;
-    int nota;
     int grupa;
+    int serie;
+    int nota;
+    string promovabilitate;
+
+    friend class examen;
 
 public:
-    Examen(string nume_student=" ",int nota=0,int grupa=0)
-    {
-        this->nume_student=nume_student;
-        this->nota=nota;
-        this->grupa=grupa;
-        cout<<"Nume:"<<this->nume_student<<"   Nota:"<<this->nota<<"   Grupa:"<<this->grupa<<endl;
+
+    date_student(string nume_student = "-", int grupa = 0, int serie = 0, int nota = 0, string promovabilitate = "-") {
+        this->nume_student = nume_student;
+        this->grupa = grupa;
+        this->serie = serie;
+        this->nota = nota;
+        this->promovabilitate = promovabilitate;
     }
 
-    Examen(Examen& examen)
-    {
-        nume_student=examen.nume_student;
-        nota=examen.nota;
-        grupa=examen.grupa;
+    date_student(date_student &student) {
+        this->nume_student = student.nume_student;
+        this->grupa = student.grupa;
+        this->serie = student.serie;
+        this->nota = student.nota;
+        this->promovabilitate = student.promovabilitate;
     }
 
-    ~Examen()
-    {
-        cout<<"\nAcestea sunt informatiile despre notele studentilor la examenul de POO";
+    ~date_student() = default;
+
+    string get_nume () {
+        return nume_student;
     }
 
-    void restanta()
-    {
+    int get_serie () {
+        return serie;
+    }
+
+    int get_grupa () {
+        return grupa;
+    }
+
+    float get_nota () {
+        return nota;
+    }
+
+    friend istream &operator>>(istream& in, date_student& s1){
+        in >> s1.nume_student;
+        in >> s1.grupa;
+        in >> s1.serie;
+        in >> s1.nota;
+        return in;
+    }
+
+    friend ostream &operator<<(ostream &out, date_student &s2) {
+        out << "Studentul " << s2.nume_student << " este " << s2.promovabilitate << endl;
+        return out;
+    }
+
+    bool promovat(){
         if(nume_student == " " || nota == 0)
         {
-            cout<<"\nStudentul "<<nume_student<<" nu s-a prezentat la examen.\n";
-            cout<<"Acesta va fi reevaluat in sesiunea de restante!\n";
+            this->promovabilitate = "absent";
+            return false;
         }
         else if(nota > 5)
-            cout<<"\nStudentul "<<nume_student<<" din grupa "<<grupa<<" a trecut examenul de POO.\n";
+        {
+            this->promovabilitate = "promovat";
+            return true;
+        }
         else
         {
-            cout<<"\nStudentul "<<nume_student<<" din grupa "<<grupa<<" a picat examenul de POO."<<"\n";
-            cout<<"Acesta va fi reevaluat in sesiunea de restante!\n";
+            this->promovabilitate = "nepromovat";
+            return false;
         }
     }
+
 };
 
-int main()
-{
-    cout<<"Date Examen: \n";
-    Examen POO_1;
-    Examen POO_2("Andrei");
-    Examen POO_3("Ioan",3);
-    Examen POO_4("Alina",8,253);
-    Examen POO_5("Mara",4,254);
-    Examen POO_6("Calin",10,252);
-    Examen POO_7(POO_4);
+class examen {
+    string nume_materie;
+    string data_examen;
+    vector<date_student> v;
 
-    cout<<"\n\nInformatii despre studentii: \n\n";
-    POO_1.restanta();
-    POO_2.restanta();
-    POO_3.restanta();
-    POO_4.restanta();
-    POO_5.restanta();
-    POO_6.restanta();
-    POO_7.restanta();
+public:
+
+    examen() = default;
+
+    ~examen() = default;
+
+    friend istream &operator>>(istream &in, examen &e1){
+        in>>e1.nume_materie;
+        in>>e1.data_examen;
+        date_student s;
+        int optiune=1;
+        while(optiune==1){
+            in>>s;
+            e1.v.push_back(s);
+            in>>optiune;}
+        return in;
+    }
+
+    friend ostream &operator<<(ostream &out, examen &e2){
+        out<<e2.nume_materie<<" "<<e2.data_examen<<endl;
+        string nume;
+        int grupa, serie;
+        float nota;
+        for(int i = 0; i < e2.v.size(); ++i)
+        {
+            nume = e2.v[i].get_nume();
+            grupa = e2.v[i].get_grupa();
+            serie = e2.v[i].get_serie();
+            nota = e2.v[i].get_nota();
+            out<<nume<<' '<<grupa<<' '<<serie<<' '<<nota<<endl;
+        }
+        return out;
+    }
+
+};
+
+int main(){
+    examen E1;
+    cin>>E1;
+    cout<<E1;
+    date_student c;
+    cin>>c;
+    cout<<c;
+    return 0;
 }
