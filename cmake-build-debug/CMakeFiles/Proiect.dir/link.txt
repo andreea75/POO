@@ -1,0 +1,3 @@
+"C:\Users\Andreea75\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Proiect.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\Proiect.dir/objects.a @CMakeFiles\Proiect.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Proiect.dir/objects.a -Wl,--no-whole-archive  -o Proiect.exe -Wl,--out-implib,libProiect.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Proiect.dir\linklibs.rsp

@@ -1,21 +1,25 @@
 #include <iostream>
 using namespace std;
+#include <fstream>
 #include <string>
 #include <vector>
+
+ifstream fin("citire.in");
 class examen;
 
-class date_student : public basic_string<char> {
+class date_student{
+
     string nume_student;
     int grupa;
     int serie;
-    int nota;
+    float nota;
     string promovabilitate;
 
     friend class examen;
 
 public:
 
-    date_student(string nume_student = "-", int grupa = 0, int serie = 0, int nota = 0, string promovabilitate = "-") {
+    date_student(string nume_student = "-", int grupa = 0, int serie = 0, float nota = 0, string promovabilitate = "-") {
         this->nume_student = nume_student;
         this->grupa = grupa;
         this->serie = serie;
@@ -23,7 +27,7 @@ public:
         this->promovabilitate = promovabilitate;
     }
 
-    date_student(date_student &student) {
+    date_student(const date_student &student) {
         this->nume_student = student.nume_student;
         this->grupa = student.grupa;
         this->serie = student.serie;
@@ -58,7 +62,12 @@ public:
     }
 
     friend ostream &operator<<(ostream &out, date_student &s2) {
-        out << "Studentul " << s2.nume_student << " este " << s2.promovabilitate << endl;
+        if(s2.promovat())
+        {
+            out << "Studentul " << s2.nume_student << " este " << s2.promovabilitate << endl;
+            out << "Felicitari ati trecut examenul!" << endl;
+        }
+        else out << "Ne pare rau. Ve-ti fi reexaminat in sesiunea de restante" << endl;
         return out;
     }
 
@@ -125,10 +134,10 @@ public:
 
 int main(){
     examen E1;
-    cin>>E1;
+    fin>>E1;
     cout<<E1;
     date_student c;
-    cin>>c;
+    fin>>c;
     cout<<c;
     return 0;
 }
