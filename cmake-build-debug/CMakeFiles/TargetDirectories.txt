@@ -1,3 +1,0 @@
-C:/Users/Andreea75/Desktop/AN II, SEM I/POO/Proiect/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Andreea75/Desktop/AN II, SEM I/POO/Proiect/cmake-build-debug/CMakeFiles/Proiect.dir
-C:/Users/Andreea75/Desktop/AN II, SEM I/POO/Proiect/cmake-build-debug/CMakeFiles/edit_cache.dir

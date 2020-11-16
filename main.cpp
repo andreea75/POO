@@ -3,12 +3,10 @@ using namespace std;
 #include <fstream>
 #include <string>
 #include <vector>
-
-ifstream fin("citire.in");
 class examen;
 
-class date_student{
-
+class date_student {
+protected:
     string nume_student;
     int grupa;
     int serie;
@@ -18,7 +16,6 @@ class date_student{
     friend class examen;
 
 public:
-
     date_student(string nume_student = "-", int grupa = 0, int serie = 0, float nota = 0, string promovabilitate = "-") {
         this->nume_student = nume_student;
         this->grupa = grupa;
@@ -27,31 +24,7 @@ public:
         this->promovabilitate = promovabilitate;
     }
 
-    date_student(const date_student &student) {
-        this->nume_student = student.nume_student;
-        this->grupa = student.grupa;
-        this->serie = student.serie;
-        this->nota = student.nota;
-        this->promovabilitate = student.promovabilitate;
-    }
-
     ~date_student() = default;
-
-    string get_nume () {
-        return nume_student;
-    }
-
-    int get_serie () {
-        return serie;
-    }
-
-    int get_grupa () {
-        return grupa;
-    }
-
-    float get_nota () {
-        return nota;
-    }
 
     friend istream &operator>>(istream& in, date_student& s1){
         in >> s1.nume_student;
@@ -60,15 +33,24 @@ public:
         in >> s1.nota;
         return in;
     }
-
-    friend ostream &operator<<(ostream &out, date_student &s2) {
-        if(s2.promovat())
+    friend ostream &operator<<(ostream &out, date_student& s){
+       out << s.nume_student << " " << s.grupa << " " << s.serie << " " << s.nota << "/n";
+        if(s.promovat())
         {
-            out << "Studentul " << s2.nume_student << " este " << s2.promovabilitate << endl;
             out << "Felicitari ati trecut examenul!" << endl;
         }
-        else out << "Ne pare rau. Ve-ti fi reexaminat in sesiunea de restante" << endl;
-        return out;
+        else out << "Ne pare rau. Veti fi reexaminat in sesiunea de restante" << endl;
+       return out;
+    }
+
+
+    date_student &operator=(const date_student &s3){
+        this->nume_student = s3.nume_student;
+        this->grupa = s3.grupa;
+        this->serie = s3.serie;
+        this->nota = s3.nota;
+        this->promovabilitate = s3.promovabilitate;
+        return(*this);
     }
 
     bool promovat(){
@@ -83,18 +65,18 @@ public:
             return true;
         }
         else
-        {
+            {
             this->promovabilitate = "nepromovat";
             return false;
-        }
+            }
     }
 
 };
 
-class examen {
+class examen{
     string nume_materie;
     string data_examen;
-    vector<date_student> v;
+    vector<date_student*> v;
 
 public:
 
@@ -102,42 +84,39 @@ public:
 
     ~examen() = default;
 
+
     friend istream &operator>>(istream &in, examen &e1){
         in>>e1.nume_materie;
         in>>e1.data_examen;
-        date_student s;
-        int optiune=1;
-        while(optiune==1){
+        int nr_studenti;
+        in>>nr_studenti;
+        date_student *s;
+        for( int i = 0; i < nr_studenti; i++)
+        {
             in>>s;
             e1.v.push_back(s);
-            in>>optiune;}
+        }
         return in;
     }
 
     friend ostream &operator<<(ostream &out, examen &e2){
         out<<e2.nume_materie<<" "<<e2.data_examen<<endl;
-        string nume;
-        int grupa, serie;
-        float nota;
-        for(int i = 0; i < e2.v.size(); ++i)
-        {
-            nume = e2.v[i].get_nume();
-            grupa = e2.v[i].get_grupa();
-            serie = e2.v[i].get_serie();
-            nota = e2.v[i].get_nota();
-            out<<nume<<' '<<grupa<<' '<<serie<<' '<<nota<<endl;
-        }
         return out;
     }
-
 };
 
 int main(){
+    ifstream fin("citire.in");
     examen E1;
     fin>>E1;
     cout<<E1;
-    date_student c;
-    fin>>c;
-    cout<<c;
+    /*vector<date_student*> v;
+    int nr_studenti;
+    fin>>nr_studenti;
+    for( int i = 0; i < nr_studenti; i++)
+    {
+        fin>>v.push_back(new date_student);
+    }
+    v.clear();*/
     return 0;
 }
