@@ -74,7 +74,7 @@ public:
 class examen{
     string nume_materie;
     string data_examen;
-    vector<date_student*> v;
+    vector<date_student> v;
 
 public:
 
@@ -88,10 +88,11 @@ public:
         in>>e1.data_examen;
         int nr_studenti;
         in>>nr_studenti;
-        date_student *s;
+        date_student s;
         for( int i = 0; i < nr_studenti; i++)
         {
-            in>> *s;
+            in >> s;
+            e1.v.push_back(s);
         }
         return in;
     }
