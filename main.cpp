@@ -33,16 +33,14 @@ public:
         in >> s1.nota;
         return in;
     }
+
     friend ostream &operator<<(ostream &out, date_student& s){
-       out << s.nume_student << " " << s.grupa << " " << s.serie << " " << s.nota << "/n";
+      // out << s.nume_student << " " << s.grupa << " " << s.serie << " " << s.nota << "/n";
         if(s.promovat())
-        {
             out << "Felicitari ati trecut examenul!" << endl;
-        }
-        else out << "Ne pare rau. Veti fi reexaminat in sesiunea de restante" << endl;
+        else out <<"Ne pare rau. Veti fi reexaminat in sesiunea de restante" << endl;
        return out;
     }
-
 
     date_student &operator=(const date_student &s3){
         this->nume_student = s3.nume_student;
@@ -93,30 +91,27 @@ public:
         date_student *s;
         for( int i = 0; i < nr_studenti; i++)
         {
-            in>>s;
-            e1.v.push_back(s);
+            in>> *s;
         }
         return in;
     }
 
     friend ostream &operator<<(ostream &out, examen &e2){
         out<<e2.nume_materie<<" "<<e2.data_examen<<endl;
+        for(auto & i : e2.v){
+            out << i;
+        }
         return out;
     }
 };
 
 int main(){
     ifstream fin("citire.in");
-    examen E1;
-    fin>>E1;
-    cout<<E1;
-    /*vector<date_student*> v;
-    int nr_studenti;
-    fin>>nr_studenti;
-    for( int i = 0; i < nr_studenti; i++)
-    {
-        fin>>v.push_back(new date_student);
-    }
-    v.clear();*/
+    examen E;
+    date_student c;
+    fin>>E;
+    fin>>c;
+    cout<<E;
+    cout<<c;
     return 0;
 }
