@@ -10,18 +10,15 @@ protected:
     int grupa;
     int serie;
     float nota_examen;
-    //std::string promovabilitate;
     friend class materie;
     friend class partial;
     friend class colocviu;
 
 public:
     date_student(const std::string& = "-", int = 0, int = 0, float = 0) ;
-    ~date_student() ;
-    //bool promovat() ;
-    float nota_finala() const ;
+    virtual ~date_student() ;
+    virtual float nota_finala() const ;
     friend std::istream &operator>>(std::istream&, date_student&) ;
-    //friend std::ostream &operator<<(std::ostream&, date_student&) ;
     date_student &operator=(const date_student&) ;
 
     std::string get_nume_student(){

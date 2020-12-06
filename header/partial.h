@@ -14,12 +14,4 @@ public:
     ~partial();
 
     float nota_partial() const ;
-
-    /*static int get_nota_partial_1(){
-        return nota_partial_1;
-    }
-    static int get_nota_partial_2(){
-        return nota_partial_2;
-    }*/
-
 };

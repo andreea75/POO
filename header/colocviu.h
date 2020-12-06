@@ -11,11 +11,4 @@ public:
     colocviu();
     ~colocviu();
     float nota_colocviu() const;
-
-    /*static int get_nota_oral(){
-        return nota_oral;
-    }
-    static int get_nota_caiet(){
-        return nota_caiet;
-    }*/
 };
