@@ -4,17 +4,25 @@
 #include <string>
 
 int main(){
-    std::ifstream fin_M("materii.in");
+    std::ifstream fin_M;
     int nr_materii = 0;
     materie mat;
-    if(fin_M.is_open())
-    {
-        fin_M >> nr_materii;
-        std::vector<materie> Materii(nr_materii);
-        for (int i = 0; i < nr_materii; i++) {
+    try{
+      fin_M.exceptions(std::ifstream::failbit);
+      fin_M.open("materii.in");
+      fin_M >> nr_materii;
+      std::vector<materie> Materii (nr_materii);
+      for (int i = 0; i < nr_materii; i++)
+      {
             Materii.push_back(mat);
             std::cout << Materii[i];
         }
     }
-    else std::cout<<"Fisierul nu a putut fi deschis";
+  catch (const std::ifstream::failure& err) {
+      std::cout << "Fisierul nu a putut fi deschis.\n";
+      std::cout << err.what() << "\n" << err.code() << "\n";
+      return 1;
+   }
+
+    fin_M.close();
 }
