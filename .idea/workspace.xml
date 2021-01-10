@@ -30,6 +30,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug/CMakeFiles" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Andreea75\Desktop\AN II, SEM I\POO\Tema\cmake-build-debug\CMakeFiles" />
+      <recent name="C:\Users\Andreea75\Desktop\AN II, SEM I\POO\Tema\Fisiere" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tema" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Tema" TARGET_NAME="Tema" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Tema" RUN_TARGET_NAME="Tema">
@@ -59,7 +66,13 @@
       <workItem from="1606314990938" duration="1030000" />
       <workItem from="1606502892282" duration="1976000" />
       <workItem from="1606914419998" duration="16320000" />
-      <workItem from="1607085279689" duration="13682000" />
+      <workItem from="1607085279689" duration="15144000" />
+      <workItem from="1607256645113" duration="506000" />
+      <workItem from="1607266746081" duration="1393000" />
+      <workItem from="1607271292889" duration="1683000" />
+      <workItem from="1607545332290" duration="1103000" />
+      <workItem from="1610116248322" duration="3441000" />
+      <workItem from="1610284336015" duration="10340000" />
     </task>
     <servers />
   </component>
@@ -75,22 +88,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606920828664" />
-    <state width="1322" height="136" key="GridCell.Tab.0.bottom" timestamp="1607103111173">
+    <state width="1322" height="136" key="GridCell.Tab.0.bottom" timestamp="1610297265395">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="136" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607103111173" />
-    <state width="1322" height="136" key="GridCell.Tab.0.center" timestamp="1607103111172">
+    <state width="1322" height="136" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1610297265395" />
+    <state width="1322" height="136" key="GridCell.Tab.0.center" timestamp="1610297265395">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="136" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607103111172" />
-    <state width="1322" height="136" key="GridCell.Tab.0.left" timestamp="1607103111172">
+    <state width="1322" height="136" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1610297265395" />
+    <state width="1322" height="136" key="GridCell.Tab.0.left" timestamp="1610297265395">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="136" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607103111172" />
-    <state width="1322" height="136" key="GridCell.Tab.0.right" timestamp="1607103111172">
+    <state width="1322" height="136" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1610297265395" />
+    <state width="1322" height="136" key="GridCell.Tab.0.right" timestamp="1610297265395">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="136" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607103111172" />
+    <state width="1322" height="136" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1610297265395" />
     <state width="1322" height="216" key="GridCell.Tab.1.bottom" timestamp="1606943659472">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

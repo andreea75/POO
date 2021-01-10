@@ -3,9 +3,10 @@
 //
 
 #pragma once
-#include "../header/date_student.h"
+#include "../header/metoda_evaluare.h"
+#include "../header/materie.h"
 
-class partial :public date_student {
+class partial :public metoda_evaluare, public materie {
      int nota_partial_1;
      int nota_partial_2;
 public:
@@ -13,5 +14,7 @@ public:
 
     ~partial();
 
-    float nota_partial() const ;
+    float nota() const ;
+
+
 };

@@ -14,7 +14,8 @@ int main(){
       std::vector<materie> Materii (nr_materii);
       for (int i = 0; i < nr_materii; i++)
       {
-            Materii.push_back(mat);
+           fin_M >> Materii[i];
+            //Materii.push_back(mat);
             std::cout << Materii[i];
         }
     }

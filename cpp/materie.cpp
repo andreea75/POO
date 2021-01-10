@@ -29,31 +29,21 @@ std::istream& operator>>(std::istream &in, materie &e1){
 }
 
 std::ostream& operator<<(std::ostream &out, materie &e2){
-    partial p;
-    colocviu c;
-    date_student d;
+    //partial p;
+    //colocviu c;
+    //date_student d;
+    metoda_evaluare e;
+    materie *m;
     out<<"La materia "<<e2.nume_materie<<" sunt inscrisi urmatorii studenti: "<<std::endl;
     for(int i = 0; i < e2.nr_studenti; i++) {
         out << "Studentul " << e2.v[i].get_nume_student() << " de la grupa "<<e2.v[i].get_grupa()<<" ,seria "<<e2.v[i].get_serie()<<"are urmatoarea situatie scolara:"<<std::endl;
-        {
-            if (e2.get_tip_examen() == "partial") {
-                if (p.nota_partial() > 5)
-                    out << "partial: " << p.nota_partial() << std::endl;
-                else
-                    out << "Nu a trecut pragul de 5 al partialului" << std::endl;
-            }
-            if (e2.get_tip_examen() == "colocviu") {
-                if (c.nota_colocviu() > 5)
-                    out << "colocviu: " << c.nota_colocviu() << std::endl;
-                else
-                    out << "Nu a trecut pragul de 5 al colocviului" << std::endl;
-            }
-            if (d.get_nota_examen() > 5)
-                out << "examen: " << d.get_nota_examen() << std::endl;
-            else
-                out << "Va trebuii sa fie reexaminat" << std::endl;
-        }
-        out << "NOTA FINALA: " << d.nota_finala() << std::endl;
+        if (e2.get_tip_examen() == "partial")
+            m = new partial();
+
+        else  if (e2.get_tip_examen() == "colocviu")
+            m = new colocviu();
+
+        out << "NOTA FINALA: " << e.nota() << std::endl;
     }
     return out;
 }

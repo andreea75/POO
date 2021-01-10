@@ -24,12 +24,6 @@ std::istream& operator>>(std::istream& in, date_student& s1){
     return in;
 }
 
-float date_student::nota_finala() const {
-    class partial p;
-    class colocviu c;
-    float nota;
-    nota = 0.2 * p.nota_partial() + 0.3 * c.nota_colocviu() + 0.5 * nota_examen;
-    return nota;
-}
-
 date_student &date_student::operator=(const date_student &s3) = default;
+
+//date_student::date_student() = default;

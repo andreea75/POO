@@ -16,7 +16,7 @@ colocviu::colocviu() {
 
 colocviu::~colocviu() = default;
 
-float colocviu::nota_colocviu() const
+float colocviu::nota() const
 {
     float medie;
     medie = (this->nota_oral + this->nota_caiet)/2.0;

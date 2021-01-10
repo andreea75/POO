@@ -3,21 +3,25 @@
 //
 #pragma once
 #include <string>
+#include "../header/materie.h"
 
-class date_student {
+class date_student{
 protected:
     std::string nume_student;
     int grupa;
     int serie;
     float nota_examen;
     friend class materie;
-    friend class partial;
-    friend class colocviu;
+    //friend class partial;
+    //friend class colocviu;
+    friend class metoda_evaluare;
 
 public:
-    date_student(const std::string& = "-", int = 0, int = 0, float = 0) ;
+    explicit date_student(const std::string& = "-", int = 0, int = 0, float = 0) ;
+    //date_student();
     virtual ~date_student() ;
-    virtual float nota_finala() const ;
+    //virtual float nota_finala() const ;
+
     friend std::istream &operator>>(std::istream&, date_student&) ;
     date_student &operator=(const date_student&) ;
 

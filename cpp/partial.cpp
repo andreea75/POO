@@ -16,7 +16,7 @@ partial::partial() {
 
 partial::~partial() = default;
 
-float partial::nota_partial() const
+float partial::nota() const
 {
     float medie;
     medie = (this->nota_partial_1 + this->nota_partial_2)/2.0;

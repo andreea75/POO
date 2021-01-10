@@ -14,8 +14,9 @@ class materie {
     std::string tip_examen; // tip_examen = partial, colocviu
     std::vector<date_student> v;
     friend class date_student;
-    friend class partial;
-    friend class colocviu;
+    //friend class partial;
+    friend class metoda_evaluare;
+    //friend class colocviu;
 public:
     materie();
 
